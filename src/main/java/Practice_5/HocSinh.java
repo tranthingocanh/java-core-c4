@@ -27,7 +27,7 @@ public class HocSinh {
         System.out.print("Diem TB: ");
         hs.diem = sc.nextFloat();
         sc.nextLine();
-        System.out.print("Gioi Tinh: ");
+        System.out.print("Nu?: ");
         hs.nu = sc.nextBoolean();
 
         return hs;

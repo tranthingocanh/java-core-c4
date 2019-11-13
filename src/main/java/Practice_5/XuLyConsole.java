@@ -4,24 +4,52 @@ import java.util.Scanner;
 
 public class XuLyConsole {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("So luong lop Hoc can nhap: ");
-        int soLuong = sc.nextInt();
+        try {
+            Scanner sc = new Scanner(System.in);
 
-        LopHoc lh = new LopHoc();
+            System.out.print("So luong Lop Hoc can nhap: ");
 
-        LopHoc[] dsLopHoc = new LopHoc[soLuong];
+            int soLuongLopHoc = sc.nextInt();
 
-        dsLopHoc = lh.nhapThongTin(dsLopHoc);
+            LopHoc[] dsLopHoc = new LopHoc[soLuongLopHoc];
 
-        lh.inRaDsLop(dsLopHoc);
+            try{
 
-        lh.nhapDsHocSinhTheoLopHoc(dsLopHoc);
+                for( int i = 0; i < soLuongLopHoc; i++ ){
+                    LopHoc lh = new LopHoc();
+                    dsLopHoc[i] = lh.nhapThongTinLopHoc();
+                }
 
-        lh.inRaDsHSTheoLopHoc(dsLopHoc);
+            }catch(Exception e){
+                System.out.println("Du lieu thong tin lop hoc sai!!!" + e);
+            }
+
+            System.out.println("-------------IN RA DANH SACH LOP HOC ------------");
+            for (LopHoc lh : dsLopHoc){
+                lh.inRaDsLop(lh);
+            }
+
+            System.out.println("-------------IN RA DANH SACH LOP SAP XEP THEO QUICKSORT----------");
+            LopHoc[] dsLopHocQuickSort = dsLopHoc.clone();
+            LopHoc lh = new LopHoc();
+            lh.sapXepDsLopTheoQuickSort(dsLopHocQuickSort, 0, dsLopHocQuickSort.length-1);
+            for (LopHoc l : dsLopHocQuickSort){
+                lh.inRaDsLop(l);
+            }
+
+            System.out.println("--------------NHAP THONG TIN HOC SINH THEO LOP HOC --------------");
+            for (LopHoc l : dsLopHoc){
+                lh.nhapDsHocSinhTheoLopHoc(l);
+            }
+
+            System.out.println("-------------IN RA DANH SACH HOC SINH THEO LOP HOC --------------");
+            for (LopHoc l : dsLopHoc) {
+                lh.inRaDsHSTheoLopHoc(l);
+            }
+
+        }catch (Exception e){
+            System.out.println("Du lieu dau vao sai!!!" + e);
+        }
     }
-
-
-
 
 }

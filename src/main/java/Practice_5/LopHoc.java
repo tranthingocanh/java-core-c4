@@ -1,6 +1,5 @@
 package Practice_5;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class LopHoc {
@@ -43,16 +42,15 @@ public class LopHoc {
 
     }
 
-    public void nhapDsHocSinhTheoLopHoc(LopHoc lh){
+    public void nhapDsHocSinhTheoLopHoc(LopHoc lh) throws Exception {
 
-        System.out.println("Ten Lop Hoc: " + lh.tenLopHoc);
-        lh.dsHocSinh = new HocSinh[lh.soHocSinh];
-        for (int i = 0; i < lh.soHocSinh; i++){
-            HocSinh hs = new HocSinh();
-            System.out.println("------STT "+ i+1);
-            lh.dsHocSinh[i] = hs.nhapThongTinHocSinh();
-        }
-
+            System.out.println("Ten Lop Hoc: " + lh.tenLopHoc + " - So HS: " + lh.soHocSinh);
+            lh.dsHocSinh = new HocSinh[lh.soHocSinh];
+            for (int i = 0; i < lh.soHocSinh; i++) {
+                HocSinh hs = new HocSinh();
+                System.out.println("------STT " + (i + 1));
+                lh.dsHocSinh[i] = hs.nhapThongTinHocSinh();
+            }
     }
 
     public void inRaDsHSTheoLopHoc(LopHoc lh){

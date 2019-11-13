@@ -15,7 +15,7 @@ public class HocSinh {
     Boolean nu;
     float diem;
 
-    public HocSinh nhapThongTinHocSinh(){
+    public HocSinh nhapThongTinHocSinh() throws Exception{
         Scanner sc = new Scanner(System.in);
 
         HocSinh hs = new HocSinh();

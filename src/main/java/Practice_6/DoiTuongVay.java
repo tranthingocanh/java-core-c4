@@ -1,6 +1,7 @@
 package Practice_6;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -28,10 +29,9 @@ public class DoiTuongVay {
             dTV.soTienVay = sc.nextDouble();
 
             dTV.laiSuat = ((new Date().getTime() - dTV.ngayVay.getTime())/(1000*60*60*24))*dTV.soTienVay*0.17;
-            DecimalFormat decimalFormat = new DecimalFormat("#.00000000000000000000");
+            DecimalFormat decimalFormat = new DecimalFormat("#.000000");
             String numberAsString = decimalFormat.format( dTV.laiSuat);
             System.out.println("Xuat Lai Suat: " + numberAsString);
-            System.out.println("Xuat Lai Suat: " + dTV.laiSuat);
 
 
         }catch(Exception e){
